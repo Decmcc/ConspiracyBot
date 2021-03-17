@@ -1,0 +1,16 @@
+import tweepy
+import random
+import time
+starttime = time.time()
+
+while True:
+    number = random.randint(0,9999999999)
+    consumer_key = "TMx8wmUmv4jLUEuI0smLVf62f"
+    consumer_secret = "gqULXiHSozaz5O3yrjWNkIAxVuDYrTjjlZUa18xGB273MmZ5tt"
+    key = "1372240298215112707-qdhq2OqfCGKpSjf8lLXymLhBUojhix"
+    secret = "NgxhOybLrXZEMkl77bxm4H8FF87EaTQm6fEV79kT4jvHv"
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(key, secret)
+    api = tweepy.API(auth)
+    api.update_status(number)
+    time.sleep(100 - ((time.time() - starttime) % 100))
